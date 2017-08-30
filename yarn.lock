@@ -10,6 +10,21 @@
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/@material/base/-/base-0.2.5.tgz#d721a8add68bbfa8ed6759c6bbd9107cd272a2b0"
 
+"@material/card@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@material/card/-/card-0.2.7.tgz#277f08d8013ea61fbd91885eb6f029ba9bc5502b"
+  dependencies:
+    "@material/elevation" "^0.1.11"
+    "@material/rtl" "^0.1.7"
+    "@material/theme" "^0.2.0"
+    "@material/typography" "^0.3.0"
+
+"@material/elevation@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@material/elevation/-/elevation-0.1.11.tgz#195815648697f2fbad20666a4c232dc9b6f1189b"
+  dependencies:
+    "@material/animation" "^0.3.1"
+
 "@material/ripple@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-0.8.5.tgz#8e3d6f3161894e2dbc2e11952cb4b6add442a7dd"
