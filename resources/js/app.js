@@ -1,6 +1,17 @@
+import { MDCTextfield } from '@material/textfield'
+
 window.addEventListener('load', onReady)
 
 function onReady() {
+  initComponents()
+  manageSubmission()
+}
+
+function initComponents() {
+  const textField = new MDCTextfield(document.querySelector('.mdc-textfield'))
+}
+
+function manageSubmission() {
   const entry = document.querySelector('#entry')
   const results = document.querySelector('#results')
 
