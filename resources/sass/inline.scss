@@ -15,6 +15,15 @@ h1 {
   font-size: 4rem;
   font-weight: 100;
   text-transform: uppercase;
+  @media (max-device-width: 640px) {
+    font-size: 3rem;
+  }
+}
+.mdc-textfield {
+  width: 397px;
+  @media (max-device-width: 640px) {
+    width: 297px;
+  }
 }
 #results {
   display: grid;
