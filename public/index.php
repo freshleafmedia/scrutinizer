@@ -20,7 +20,11 @@ $app->extend('twig', function($twig, $app) {
 });
 
 $app->get('/', function() use($app) {
-    return $app['twig']->render('index.twig');
+    return (new \App\AppController($app))->index();
+});
+
+$app->get('/run',function() use($app) {
+    return (new \App\AppController($app))->run();
 });
 
 $app->run();
