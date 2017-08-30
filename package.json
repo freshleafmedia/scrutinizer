@@ -14,10 +14,13 @@
     "@material/theme": "^0.2.0",
     "clean-css-cli": "^4.1.6",
     "local-web-server": "^2.2.4",
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.5.3",
+    "webpack": "^3.5.5"
   },
   "scripts": {
-    "build": "node-sass --include-path=node_modules ./sass/app.scss | cleancss -o ./public/app.min.css",
+    "build": "yarn build:js && yarn build:css",
+    "build:js": "webpack js/app.js public/app.min.js",
+    "build:css": "node-sass --include-path=node_modules sass/app.scss | cleancss -o public/app.min.css",
     "start": "ws -d public"
   }
 }
