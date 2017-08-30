@@ -17,12 +17,33 @@
             padding: 0;
             background: #3F51B5;
             color: #fff;
-            font: arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             text-transform: uppercase;
         }
+        h1 {
+            font-size: 4rem;
+            font-weight: 100;
+        }
     </style>
+    <script>
+        function lazyLink(url) {
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', url)
+            xhr.addEventListener('load', function () {
+                if (this.status == 200) {
+                    document.body.innerHTML += '<link href="' + url + '" rel="stylesheet">'
+                }
+            })
+            xhr.send()
+        }
+        lazyLink('https://fonts.googleapis.com/css?family=Roboto:100,400')
+        lazyLink('/app.min.css')
+    </script>
 </head>
 <body>
     <h1>Scrutinizer</h1>
+    <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+        <input type="text" class="mdc-textfield__input" value="" placeholder="https://example.com" autofocus>
+    </div>
 </body>
 </html>
