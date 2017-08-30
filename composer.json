@@ -7,6 +7,7 @@
         }
     ],
     "require": {
+        "php": "^7",
         "silex/silex": "~2.0",
         "twig/twig": "^2.0"
     },
