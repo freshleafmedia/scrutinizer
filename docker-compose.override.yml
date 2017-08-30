@@ -1,0 +1,3 @@
+scrutinize:
+  ports:
+   - "80:80"

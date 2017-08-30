@@ -1,0 +1,13 @@
+{
+    "name": "freshleafmedia/scrutinzer",
+    "authors": [
+        {
+            "name": "Joe Strong",
+            "email": "joestrong@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0",
+        "twig/twig": "^2.0"
+    }
+}
