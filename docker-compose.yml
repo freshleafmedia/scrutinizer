@@ -1,0 +1,12 @@
+scrutinize:
+  container_name: scrutinizer
+  build: ./docker/scrutinizer
+  volumes:
+   - ./:/web
+  links:
+   - php
+php:
+  container_name: scrutinizer-php
+  image: php:7-fpm
+  volumes:
+   - ./:/web

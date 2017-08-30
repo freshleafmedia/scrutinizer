@@ -2,12 +2,14 @@
 
 ## Run it!
 
-`yarn` to install dependancies
+`yarn` to install js dependancies
 
-`yarn start` to view at http://localhost:8000
+`composer install` to install php dependancies
+
+`yarn start` to run in a docker container at http://localhost
 
 ## Build
 
-Compiles SASS, etc.
+Compiles SASS, JS, etc.
 
 `yarn build`
