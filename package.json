@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@material/textfield": "^0.3.6",
+    "@material/theme": "^0.2.0",
     "clean-css-cli": "^4.1.6",
     "local-web-server": "^2.2.4",
     "node-sass": "^4.5.3"
