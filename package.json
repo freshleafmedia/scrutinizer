@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "yarn build:js && yarn build:css",
-    "build:js": "webpack js/app.js public/app.min.js",
-    "build:css": "node-sass --include-path=node_modules sass/app.scss | cleancss -o public/app.min.css",
+    "build:js": "webpack resources/js/app.js public/app.min.js",
+    "build:css": "node-sass --include-path=node_modules resources/sass/app.scss | cleancss -o public/app.min.css",
     "start": "ws -d public"
   }
 }
