@@ -18,9 +18,10 @@
     "webpack": "^3.5.5"
   },
   "scripts": {
-    "build": "yarn build:js && yarn build:css",
+    "build": "yarn build:js && yarn build:css && yarn build:inline",
     "build:js": "webpack resources/js/app.js public/app.min.js",
     "build:css": "node-sass --include-path=node_modules resources/sass/app.scss | cleancss -o public/app.min.css",
+    "build:inline": "node-sass --include-path=node_modules resources/sass/inline.scss | cleancss -o public/inline.min.css",
     "start": "docker-compose up -d"
   }
 }

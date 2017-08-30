@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <title>Scrutinizer</title>
     <style>
-        html {
-            height: 100%;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-        h1 {
-            font-size: 4rem;
-            font-weight: 100;
-            text-transform: uppercase;
-        }
+        {{ file_contents('/inline.min.css') | raw }}
     </style>
     <script>
         function lazyLink(url) {
@@ -35,11 +18,11 @@
             xhr.send()
         }
         lazyLink('https://fonts.googleapis.com/css?family=Roboto:100,400')
-        lazyLink('/app.min.css')
+        lazyLink('{{ '/app.min.css' | hash }}')
     </script>
-    <script async src="/app.min.js"></script>
+    <script async src="{{ '/app.min.js' | hash }}"></script>
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="icon" type="image/png" href="{{ '/icon.png' | hash }}">
     <meta name="theme-color" content="#3F51B5">
 </head>
 <body class="mdc-theme--primary-bg">
