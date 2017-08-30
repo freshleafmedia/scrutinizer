@@ -30,14 +30,20 @@
             var xhr = new XMLHttpRequest()
             xhr.open('GET', url)
             xhr.addEventListener('load', function () {
-                document.body.innerHTML += '<link href="' + url + '" rel="stylesheet">'
+                if (this.status == 200) {
+                    document.body.innerHTML += '<link href="' + url + '" rel="stylesheet">'
+                }
             })
             xhr.send()
         }
         lazyLink('https://fonts.googleapis.com/css?family=Roboto:100,400')
+        lazyLink('/app.min.css')
     </script>
 </head>
 <body>
     <h1>Scrutinizer</h1>
+    <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+        <input type="text" class="mdc-textfield__input" value="" placeholder="https://example.com" autofocus>
+    </div>
 </body>
 </html>

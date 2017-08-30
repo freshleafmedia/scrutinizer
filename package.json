@@ -10,9 +10,13 @@
     "node": ">=8"
   },
   "devDependencies": {
-    "local-web-server": "^2.2.4"
+    "@material/textfield": "^0.3.6",
+    "clean-css-cli": "^4.1.6",
+    "local-web-server": "^2.2.4",
+    "node-sass": "^4.5.3"
   },
   "scripts": {
+    "build": "node-sass --include-path=node_modules ./sass/app.scss | cleancss -o ./app.min.css",
     "start": "ws"
   }
 }
