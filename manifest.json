@@ -1,0 +1,10 @@
+{
+  "name": "Scrutinizer",
+  "description": "Scrutinizes a website",
+  "version": "0.1.0",
+  "manifest_version": 1,
+  "icons": {
+    "32": "icon.png"
+  },
+  "default_locale": "en"
+}
