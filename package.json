@@ -1,0 +1,18 @@
+{
+  "name": "scrutinizer",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:freshleafmedia/scrutinzer.git",
+  "author": "Joe Strong <joestrong@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {
+    "local-web-server": "^2.2.4"
+  },
+  "scripts": {
+    "start": "ws"
+  }
+}
