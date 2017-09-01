@@ -33,10 +33,11 @@ export default class AppController {
 
   addPanel(test) {
     const panel = `
-      <div class="mdc-card">
+      <div class="mdc-card test-result-card">
         <section class="mdc-card__primary">
-          <h1 class="mdc-card__title mdc-card__title--large">${test.test}</h1>
-          ${JSON.stringify(test.results)}
+          <div class="test-result-card__status"></div>
+          <h1 class="mdc-card__title">${test.test}</h1>
+          <h2 class="mdc-card__subtitle">${JSON.stringify(test.results)}</h2>
         </section>
       </div>
     `

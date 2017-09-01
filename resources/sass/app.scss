@@ -2,3 +2,18 @@
 @import '@material/textfield/mdc-textfield';
 @import '@material/theme/mdc-theme';
 @import '@material/card/mdc-card';
+
+.test-result-card {
+  background: #fff;
+  .test-result-card__status {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #aaa;
+  }
+  .mdc-card__title,
+  .mdc-card__subtitle {
+    margin-left: 3rem;
+  }
+}
