@@ -17,19 +17,26 @@ export default class AppController {
       return
     }
 
+    this.clearResults()
+
     request.post({ url: 'tests/sitemap', form: { url: this.entry.value } }, (err, response, body) => {
       if (err || response.statusCode !== 200) {
         return
       }
-      this.addPanel(body)
+      this.addPanel(JSON.parse(body))
     })
   }
 
-  addPanel(content) {
+  clearResults() {
+    this.results.innerHTML = ''
+  }
+
+  addPanel(test) {
     const panel = `
       <div class="mdc-card">
         <section class="mdc-card__primary">
-          <h1 class="mdc-card__title mdc-card__title--large">${content}</h1>
+          <h1 class="mdc-card__title mdc-card__title--large">${test.test}</h1>
+          ${JSON.stringify(test.results)}
         </section>
       </div>
     `
