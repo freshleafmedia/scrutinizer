@@ -1,5 +1,5 @@
 import _request from 'request-promise'
-import config from './config.js'
+import config from '../../config.js'
 
 function request(url, options, callback) {
   _request(config.apiHost + url, options, callback)
