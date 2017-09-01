@@ -17,6 +17,8 @@
     "local-web-server": "^2.2.4",
     "node-notifier-cli": "^1.0.1",
     "node-sass": "^4.5.3",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "watch": "^1.0.2",
     "webpack": "^3.5.5"
   },

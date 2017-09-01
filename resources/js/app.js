@@ -1,45 +1,12 @@
+"use strict"
 import { MDCTextfield } from '@material/textfield'
+import ApplicationController from './ApplicationController.js'
 
-window.addEventListener('load', onReady)
-
-function onReady() {
+window.addEventListener('load', event => {
   initComponents()
-  manageSubmission()
-}
+  new ApplicationController()
+})
 
 function initComponents() {
-  const textField = new MDCTextfield(document.querySelector('.mdc-textfield'))
-}
-
-function manageSubmission() {
-  const entry = document.querySelector('#entry')
-  const results = document.querySelector('#results')
-
-  entry.addEventListener('keypress', event => {
-    if (event.keyCode === 13) {
-      request('/run', handleResponse)
-    }
-  })
-
-  function request(url, callback) {
-    const xhr = new XMLHttpRequest()
-    xhr.open('GET', url)
-    xhr.addEventListener('load', callback)
-    xhr.send()
-  }
-
-  function handleResponse() {
-    addBox(this.response)
-  }
-
-  function addBox(content) {
-    const box = `
-      <div class="mdc-card">
-        <section class="mdc-card__primary">
-          <h1 class="mdc-card__title mdc-card__title--large">${content}</h1>
-        </section>
-      </div>
-    `
-    results.innerHTML += box
-  }
+  new MDCTextfield(document.querySelector('.mdc-textfield'))
 }
