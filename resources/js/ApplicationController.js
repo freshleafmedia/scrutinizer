@@ -17,9 +17,11 @@ export default class AppController {
       return
     }
 
-    request.post('tests/sitemap', result => {
-      console.log(result)
-      this.addPanel(result)
+    request.post({ url: 'tests/sitemap', form: { url: this.entry.value } }, (err, response, body) => {
+      if (err || response.statusCode !== 200) {
+        return
+      }
+      this.addPanel(body)
     })
   }
 
