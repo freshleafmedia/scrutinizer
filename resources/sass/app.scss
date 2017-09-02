@@ -5,8 +5,9 @@
 @import "@material/list/mdc-list";
 
 .test-result-card {
+  justify-content: flex-start;
   background: #fff;
-  .test-result-card__status {
+  .test-result-card__icon {
     position: absolute;
     width: 2.5rem;
     height: 2.5rem;
@@ -16,5 +17,19 @@
   .mdc-card__title,
   .mdc-card__subtitle {
     margin-left: 3rem;
+  }
+  .mdc-list-item {
+    align-items: flex-start;
+    overflow: hidden;
+    .test-status-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: #aaa;
+      margin-right: .5rem;
+    }
   }
 }

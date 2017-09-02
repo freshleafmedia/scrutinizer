@@ -1,4 +1,5 @@
 import { request, camelize } from './utils.js'
+import domify from 'domify'
 
 export default class TestGroupController {
 
@@ -15,7 +16,7 @@ export default class TestGroupController {
     request('tests/' + this.testGroup + '/listAll', (err, response, body) => {
       const testsToRun = JSON.parse(body)
       for (const testName of testsToRun) {
-        this.runTest(testName, camelize(testName))
+        this.runTest(testName, camelize(testName.toLowerCase()))
       }
     })
   }
@@ -36,22 +37,38 @@ export default class TestGroupController {
 
   render() {
     if (!this.el) {
-      this.el = document.createElement('ul')
-      this.el.classList.add('mdc-list', 'test-result-card')
+      this.el = domify(`
+      <div class="mdc-card test-result-card">
+        <section class="mdc-card__primary">
+          <div class="test-result-card__icon"></div>
+          <h1 class="mdc-card__title mdc-card__title--large">${this.testGroup}</h1>
+          <h2 class="mdc-card__subtitle">Test results</h2>
+        </section>
+        <section class="test-list"></section>
+      </div>
+      `)
       this.results.appendChild(this.el)
     }
-    this.el.innerHTML = this.testGroup
+
+    const listEl = domify(`<ul class="mdc-list"></ul>`)
     for (const test of this.testResults) {
+      const errors = test.result.problems.join('<br>')
       const resultEl = document.createElement('li')
+      resultEl.classList.add('mdc-list-item')
       resultEl.innerHTML = `
+        <span class="test-status-icon">
+          <i class="material-icons" aria-hidden="true">folder</i>
+        </span>
         <span class="mdc-list-item__text">
             ${test.name}
           <span class="mdc-list-item__text__secondary">
-            ${JSON.stringify(test.result)}
+            ${errors}
           </span>
         </span>
       `
-      this.el.appendChild(resultEl)
+      listEl.appendChild(resultEl)
     }
+    this.el.querySelector('.test-list').innerHTML = ''
+    this.el.querySelector('.test-list').appendChild(listEl)
   }
 }
