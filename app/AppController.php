@@ -12,9 +12,4 @@ class AppController
     {
         return $this->app['twig']->render('index.twig');
     }
-    
-    public function run()
-    {
-        return 'Test response';
-    }
 }
