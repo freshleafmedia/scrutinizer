@@ -25,6 +25,15 @@
   dependencies:
     "@material/animation" "^0.3.1"
 
+"@material/list@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@material/list/-/list-0.2.17.tgz#9c6afccfc22c7b242bbd17daa2a913b4f1497f88"
+  dependencies:
+    "@material/ripple" "^0.8.5"
+    "@material/rtl" "^0.1.7"
+    "@material/theme" "^0.2.0"
+    "@material/typography" "^0.3.0"
+
 "@material/ripple@^0.8.5":
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-0.8.5.tgz#8e3d6f3161894e2dbc2e11952cb4b6add442a7dd"

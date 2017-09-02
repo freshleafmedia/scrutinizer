@@ -10,4 +10,10 @@ request.post = function(options, callback) {
   _request.post(options, callback)
 }
 
-export default request
+export { request }
+
+export function camelize(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
+    return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+  }).replace(/\s+/g, '');
+}
