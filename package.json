@@ -19,14 +19,12 @@
     "local-web-server": "^2.2.4",
     "node-notifier-cli": "^1.0.1",
     "node-sass": "^4.5.3",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1",
     "watch": "^1.0.2",
     "webpack": "^3.5.6"
   },
   "scripts": {
     "build": "yarn build:js && yarn build:css && yarn build:inline && yarn notify",
-    "build:js": "webpack --devtool source-map resources/js/app.js public/app.min.js",
+    "build:js": "webpack resources/js/app.js public/app.min.js",
     "build:css": "node-sass --include-path=node_modules resources/sass/app.scss | cleancss -o public/app.min.css",
     "build:inline": "node-sass --include-path=node_modules resources/sass/inline.scss | cleancss -o public/inline.min.css",
     "start": "docker-compose up -d",

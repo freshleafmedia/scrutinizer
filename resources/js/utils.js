@@ -1,13 +1,21 @@
-import _request from 'request-promise'
 import config from '../../config.js'
 
-function request(url, options, callback) {
-  _request(config.apiHost + url, options, callback)
+function request(url, callback) {
+  const xhr = new XMLHttpRequest()
+  xhr.open('get', config.apiHost + url)
+  xhr.addEventListener('load', function() {
+    callback.call(this, null, { statusCode: this.status }, this.responseText)
+  })
+  xhr.send()
 }
 
-request.post = function(options, callback) {
-  options.url = config.apiHost + options.url
-  _request.post(options, callback)
+request.post = function(url, data, callback) {
+  const xhr = new XMLHttpRequest()
+  xhr.open('post', config.apiHost + url)
+  xhr.addEventListener('load', function() {
+    callback.call(this, null, { statusCode: this.status }, this.responseText)
+  })
+  xhr.send({ form: data })
 }
 
 export { request }
