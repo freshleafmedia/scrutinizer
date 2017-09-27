@@ -10,16 +10,8 @@ $good: #4CAF50;
 .test-result-card {
   justify-content: flex-start;
   background: #fff;
-  .test-result-card__icon {
-    position: absolute;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background: #aaa;
-  }
-  .mdc-card__title,
-  .mdc-card__subtitle {
-    margin-left: 3rem;
+  .test-result-card__background {
+    background: #C5CAE9;
   }
   .mdc-list-item {
     align-items: flex-start;

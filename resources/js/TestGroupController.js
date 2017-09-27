@@ -1,4 +1,4 @@
-import { request, camelize } from './utils.js'
+import { request, camelize, toHumanReadable } from './utils.js'
 import domify from 'domify'
 
 export default class TestGroupController {
@@ -43,11 +43,11 @@ export default class TestGroupController {
 
   render() {
     if (!this.el) {
+      const title = toHumanReadable(this.testGroup)
       this.el = domify(`
       <div class="mdc-card test-result-card">
-        <section class="mdc-card__primary">
-          <div class="test-result-card__icon"></div>
-          <h1 class="mdc-card__title mdc-card__title--large">${this.testGroup}</h1>
+        <section class="mdc-card__primary test-result-card__background">
+          <h1 class="mdc-card__title mdc-card__title--large">${title}</h1>
           <h2 class="mdc-card__subtitle">Test results</h2>
         </section>
         <section class="test-list"></section>
