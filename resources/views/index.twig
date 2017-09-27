@@ -18,6 +18,7 @@
             xhr.send()
         }
         lazyLink('https://fonts.googleapis.com/css?family=Roboto:100,400')
+        lazyLink('https://fonts.googleapis.com/css?family=Material+Icons')
         lazyLink('{{ '/app.min.css' | hash }}')
     </script>
     <script async src="{{ '/app.min.js' | hash }}"></script>
@@ -29,7 +30,7 @@
 <body class="mdc-theme--primary-bg">
     <h1 class="mdc-theme--text-primary-on-primary">Scrutinizer</h1>
     <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-        <input type="text" id="entry" class="mdc-textfield__input">
+        <input type="text" id="entry" class="mdc-textfield__input" value="https://www.joestrong.co.uk">
         <label class="mdc-textfield__label" for="entry">https://example.com</label>
     </div>
     <div id="results"></div>
