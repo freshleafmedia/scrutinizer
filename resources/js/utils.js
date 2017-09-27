@@ -25,3 +25,7 @@ export function camelize(str) {
     return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
   }).replace(/\s+/g, '');
 }
+
+export function toHumanReadable(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
