@@ -4,6 +4,9 @@
 @import '@material/card/mdc-card';
 @import "@material/list/mdc-list";
 
+$bad: #F44336;
+$good: #4CAF50;
+
 .test-result-card {
   justify-content: flex-start;
   background: #fff;
@@ -30,6 +33,12 @@
       border-radius: 50%;
       background: #aaa;
       margin-right: .5rem;
+      &.good {
+        background: $good;
+      }
+      &.bad {
+        background: $bad;
+      }
     }
   }
 }

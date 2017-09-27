@@ -7,7 +7,7 @@ export default class TestGroupController {
     this.testGroup = testGroup
     this.siteUrl = siteUrl
     this.results = document.querySelector('#results')
-    this.testResults = []
+    this.testResults = {}
     this.render()
     this.getAllTests();
   }
@@ -16,8 +16,13 @@ export default class TestGroupController {
     request('tests/' + this.testGroup + '/listAll', (err, response, body) => {
       const testsToRun = JSON.parse(body)
       for (const testName of testsToRun) {
+        this.testResults[testName] = {
+          name: testName,
+          status: 'pending'
+        }
         this.runTest(testName, camelize(testName.toLowerCase()))
       }
+      this.render()
     })
   }
 
@@ -26,11 +31,12 @@ export default class TestGroupController {
       if (err || response.statusCode !== 200) {
         return
       }
-      const testResult = {
+      const result = JSON.parse(body)
+      this.testResults[testName] = {
         name: testName,
-        result: JSON.parse(body)
+        status: result.problems.length ? 'bad' : 'good',
+        result: result
       }
-      this.testResults.push(testResult)
       this.render()
     })
   }
@@ -51,18 +57,37 @@ export default class TestGroupController {
     }
 
     const listEl = domify(`<ul class="mdc-list"></ul>`)
-    for (const test of this.testResults) {
-      const errors = test.result.problems.join('<br>')
+    for (const testKey in this.testResults) {
+      const test = this.testResults[testKey]
+      let message, icon
+      switch (test.status) {
+        case 'pending':
+          message = ''
+          icon = 'cached'
+          break
+        case 'bad':
+          message = test.result.problems.join('<br>')
+          icon = 'close'
+          break
+        case 'good':
+          message = test.result.problems.join('<br>')
+          icon = 'check'
+          break
+        default:
+          message = ''
+          icon = 'warning'
+          break
+      }
       const resultEl = document.createElement('li')
       resultEl.classList.add('mdc-list-item')
       resultEl.innerHTML = `
-        <span class="test-status-icon">
-          <i class="material-icons" aria-hidden="true">folder</i>
+        <span class="test-status-icon ${test.status}">
+          <i class="material-icons" aria-hidden="true">${icon}</i>
         </span>
         <span class="mdc-list-item__text">
             ${test.name}
           <span class="mdc-list-item__text__secondary">
-            ${errors}
+            ${message}
           </span>
         </span>
       `
