@@ -11,18 +11,22 @@ export default class TestRunnerController {
       'security',
       'appearance'
     ]
-    this.testGroupControllers = []
+    this.testGroupControllers = {} 
   }
 
   clearResults() {
     this.siteUrl = ''
-    this.results.innerHTML = ''
-    this.testGroupControllers = []
+    for (const index in this.testGroupControllers) {
+      this.testGroupControllers[index].clearResults()
+    }
   }
 
   runTests(siteUrl) {
     for (const testGroup of this.testGroups) {
-      this.testGroupControllers.push(new TestGroupController(testGroup, siteUrl))
+      if (!this.testGroupControllers[testGroup]) {
+        this.testGroupControllers[testGroup] = new TestGroupController(testGroup)
+      }
+      this.testGroupControllers[testGroup].runTests(siteUrl)
     }
   }
 }

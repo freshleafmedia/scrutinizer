@@ -3,19 +3,39 @@ import domify from 'domify'
 
 export default class TestGroupController {
 
-  constructor(testGroup, siteUrl) {
+  constructor(testGroup) {
     this.testGroup = testGroup
-    this.siteUrl = siteUrl
     this.results = document.querySelector('#results')
+    this.testsToRun = []
     this.testResults = {}
     this.render()
-    this.getAllTests();
   }
 
-  getAllTests() {
+  getAllTests(callback) {
+    if (this.testsToRun.length) {
+      if (callback) {
+        callback()
+      }
+      return
+    }
     request('tests/' + this.testGroup + '/listAll', (err, response, body) => {
-      const testsToRun = JSON.parse(body)
-      for (const testName of testsToRun) {
+      this.testsToRun = JSON.parse(body)
+      if (callback) {
+        callback()
+      }
+    })
+  }
+
+  clearResults() {
+    for (const index in this.testResults) {
+      this.testResults[index]['status'] = 'pending'
+    }
+  }
+
+  runTests(siteUrl) {
+    this.getAllTests(_ => {
+      this.siteUrl = siteUrl
+      for (const testName of this.testsToRun) {
         this.testResults[testName] = {
           name: testName,
           status: 'pending'
