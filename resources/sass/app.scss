@@ -6,6 +6,7 @@
 
 $bad: #F44336;
 $good: #4CAF50;
+$error: #FFEB3B;
 
 .test-result-card {
   justify-content: flex-start;
@@ -30,6 +31,9 @@ $good: #4CAF50;
       }
       &.bad {
         background: $bad;
+      }
+      &.error {
+        background: $error;
       }
     }
   }

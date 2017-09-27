@@ -29,6 +29,11 @@ export default class TestGroupController {
   runTest(testName, endpoint) {
     request('tests/' + this.testGroup + '/' + endpoint + "?url=" + this.siteUrl, (err, response, body) => {
       if (err || response.statusCode !== 200) {
+        this.testResults[testName] = {
+          name: testName,
+          status: 'error'
+        }
+        this.render()
         return
       }
       const result = JSON.parse(body)
@@ -59,24 +64,24 @@ export default class TestGroupController {
     const listEl = domify(`<ul class="mdc-list"></ul>`)
     for (const testKey in this.testResults) {
       const test = this.testResults[testKey]
-      let message, icon
+      let message = '', icon = ''
       switch (test.status) {
         case 'pending':
-          message = ''
           icon = 'cached'
           break
         case 'bad':
-          message = test.result.problems.join('<br>')
           icon = 'close'
           break
         case 'good':
-          message = test.result.problems.join('<br>')
           icon = 'check'
           break
+        case 'error':
         default:
-          message = ''
           icon = 'warning'
           break
+      }
+      if (test.result && test.result.problems && test.result.problems.length) {
+        message = test.result.problems.join('<br>')
       }
       const resultEl = document.createElement('li')
       resultEl.classList.add('mdc-list-item')
