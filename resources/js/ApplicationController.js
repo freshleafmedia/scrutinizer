@@ -1,11 +1,13 @@
 import TestRunnerController from './TestRunnerController.js'
+import { MDCTextfield } from '@material/textfield'
 
 export default class AppController {
 
   constructor() {
+    new MDCTextfield(document.querySelector('.mdc-textfield'))
     this.entry = document.querySelector('#entry')
     this.testRunner = new TestRunnerController()
-    this.initEvents();
+    this.initEvents()
   }
 
   initEvents() {
