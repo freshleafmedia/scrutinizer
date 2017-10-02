@@ -47,7 +47,7 @@ export default class TestGroupController {
   }
 
   runTest(testName, endpoint) {
-    request('tests/' + this.testGroup + '/' + endpoint + "?url=" + this.siteUrl, (err, response, body) => {
+    request('tests/' + this.testGroup + '/' + endpoint + '?url=' + this.siteUrl, (err, response, body) => {
       if (err || response.statusCode !== 200) {
         this.testResults[testName] = {
           name: testName,
