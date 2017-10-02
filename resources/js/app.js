@@ -1,6 +1,6 @@
-"use strict"
+'use strict'
 import ApplicationController from './ApplicationController.js'
 
-window.addEventListener('load', event => {
+window.addEventListener('load', e => {
   new ApplicationController()
 })

@@ -22,10 +22,10 @@ export { request }
 
 export function camelize(str) {
   return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
-    return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
-  }).replace(/\s+/g, '');
+    return index == 0 ? letter.toLowerCase() : letter.toUpperCase()
+  }).replace(/\s+/g, '')
 }
 
 export function toHumanReadable(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }
