@@ -86,19 +86,19 @@ export default class TestGroupController {
       const test = this.testResults[testKey]
       let message = '', icon = ''
       switch (test.status) {
-      case 'pending':
-        icon = 'cached'
-        break
-      case 'bad':
-        icon = 'close'
-        break
-      case 'good':
-        icon = 'check'
-        break
-      case 'error':
-      default:
-        icon = 'warning'
-        break
+        case 'pending':
+          icon = 'cached'
+          break
+        case 'bad':
+          icon = 'close'
+          break
+        case 'good':
+          icon = 'check'
+          break
+        case 'error':
+        default:
+          icon = 'warning'
+          break
       }
       if (test.result && test.result.problems && test.result.problems.length) {
         message = test.result.problems.join('<br>')
