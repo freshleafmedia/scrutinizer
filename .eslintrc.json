@@ -24,7 +24,10 @@
             "never"
         ],
         "no-unused-vars": [
-            "off"
+            "warn"
+        ],
+        "no-console": [
+            "warn"
         ]
     }
 }

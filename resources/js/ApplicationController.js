@@ -1,5 +1,6 @@
 import TestRunnerController from './TestRunnerController.js'
 import { MDCTextfield } from '@material/textfield'
+import Vue from 'vue'
 
 export default class AppController {
 
