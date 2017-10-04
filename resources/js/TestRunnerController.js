@@ -2,7 +2,8 @@ import TestGroupController from './TestGroupController.js'
 
 export default class TestRunnerController {
 
-  constructor() {
+  constructor(app) {
+    this.app = app
     this.siteUrl = ''
     this.results = document.querySelector('#results')
     this.testGroups = [
@@ -24,7 +25,7 @@ export default class TestRunnerController {
   runTests(siteUrl) {
     for (const testGroup of this.testGroups) {
       if (!this.testGroupControllers[testGroup]) {
-        this.testGroupControllers[testGroup] = new TestGroupController(testGroup)
+        this.testGroupControllers[testGroup] = new TestGroupController(this.app, testGroup)
       }
       this.testGroupControllers[testGroup].runTests(siteUrl)
     }

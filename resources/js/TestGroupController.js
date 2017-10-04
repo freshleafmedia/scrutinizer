@@ -3,7 +3,8 @@ import domify from 'domify'
 
 export default class TestGroupController {
 
-  constructor(testGroup) {
+  constructor(app, testGroup) {
+    this.app = app
     this.testGroup = testGroup
     this.results = document.querySelector('#results')
     this.testsToRun = []

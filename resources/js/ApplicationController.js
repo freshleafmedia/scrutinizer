@@ -7,7 +7,7 @@ export default class AppController {
   constructor() {
     new MDCTextfield(document.querySelector('.mdc-textfield'))
     this.entry = document.querySelector('#entry')
-    this.testRunner = new TestRunnerController()
+    this.testRunner = new TestRunnerController(this)
     this.initEvents()
   }
 
