@@ -19,6 +19,15 @@ $app->extend('twig', function($twig, $app) {
     return $twig;
 });
 
+$app->before(function() use ($app){
+    $app['twig']->setLexer( new Twig_Lexer($app['twig'], [
+        'tag_comment'   => ['[#', '#]'],
+        'tag_block'     => ['[%', '%]'],
+        'tag_variable'  => ['[[', ']]'],
+        'interpolation' => ['#[', ']'],
+    ]));
+});
+
 $app->get('/', function() use($app) {
     return (new \App\AppController($app))->index();
 });

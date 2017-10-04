@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Scrutinizer</title>
     <style>
-        {{ file_contents('/inline.min.css') | raw }}
+        [[ file_contents('/inline.min.css') | raw ]]
     </style>
     <script>
         function lazyLink(url) {
@@ -19,11 +19,11 @@
         }
         lazyLink('https://fonts.googleapis.com/css?family=Roboto:100,400')
         lazyLink('https://fonts.googleapis.com/css?family=Material+Icons')
-        lazyLink('{{ '/app.min.css' | hash }}')
+        lazyLink('[[ '/app.min.css' | hash ]]')
     </script>
-    <script async src="{{ '/app.min.js' | hash }}"></script>
+    <script async src="[[ '/app.min.js' | hash ]]"></script>
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="{{ '/icon.png' | hash }}">
+    <link rel="icon" type="image/png" href="[[ '/icon.png' | hash ]]">
     <meta name="theme-color" content="#3F51B5">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 </head>
