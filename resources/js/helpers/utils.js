@@ -1,4 +1,4 @@
-import config from '../../config.js'
+import config from '../../../config.js'
 
 function request(url, callback) {
   const xhr = new XMLHttpRequest()

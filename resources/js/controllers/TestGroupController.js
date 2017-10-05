@@ -1,4 +1,4 @@
-import { request, camelize, toHumanReadable } from './utils.js'
+import { request, camelize, toHumanReadable } from '../helpers/utils.js'
 import domify from 'domify'
 
 export default class TestGroupController {
